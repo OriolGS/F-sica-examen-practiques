@@ -1,8 +1,17 @@
 # Instruments
 ![alt text](image-5.png)
 
+- TGM
+- kilo, hecta, da
+---
+- d, c, m
+- μ (micro) , nano, pico
+
+------------------------
+**Mesures**
 - Voltatge: V
-- Tensió: 
+- Resistència: Ohms
+- Intensitat: Amperes
 - Periode: 1μs / 1ns = Segons
 - Freqüència: Hz
 
@@ -126,6 +135,18 @@ Ficar cables de Font d'alimentació a: vermell de dalt i verd d'abaix:
 # Chips
 ![alt text](image-23.png)
 
+## Tabla de ayuda:
+| Num | Función |
+|-----|---------|
+| 00 y 10 | NAND (2 y 3) |
+| 04 - 06 - 13 - 14 | Inversor |
+| 47  |  Decodificador |
+| 76  | Flip-Flop  |
+| 86  | XOR  |
+| 125A - 126A | Tristates  |
+| 193 | Contador
+
+
 ## NAND:
 1. SN54/74LS00 --> 2 portes
 
@@ -136,19 +157,25 @@ Ficar cables de Font d'alimentació a: vermell de dalt i verd d'abaix:
 ![alt text](image-20.png)
 
 ## Inversor (NOT):
-1. SN54/74LS04 --> Schottky
+1. SN54/74LS04 --> Con diodos Schottky
 
 ![alt text](image-18.png)
+
+- Usas el LS04 cuando simplemente quieres invertir una señal TTL limpia.
+- Más rápido y consume menos que el TTL clásico
+
 
 2. SN54/74LS06 / HD74LS06 --> Open collector
 
 ![alt text](image-19.png)
 
+- Para leds + resisstencia externa
+
 3. SN54/74LS13 --> Schmitt Trigger 
 
 ![alt text](image-21.png)
 
-Schmitt Trigger: limpia el ruido de la señal a través de tener un baremo que permite dar algo de margen:
+- Schmitt Trigger: limpia el ruido de la señal a través de tener un baremo que permite dar algo de margen:
 
 ![alt text](image-25.png)
 
@@ -180,7 +207,19 @@ Si hi ha L a 1a entrada no surt res (tristate). Si hi ha L a 2a entrada, L
 
 Flip-flop clásico JK con entradas asíncronas de preset (activo LOW) y clear (activo LOW)
 
-![alt text](image-29.png)
+![alt text](image-29.png) ![alt text](image-33.png)
+
+- J = Set
+- K = Reset
+
+Tabla de verdad Flip-Flop JK:
+
+| J | K |-| Q | Q' | Función |
+|---|---|-|---|----|---------|
+| 0 | 0 |-| X | X  | Memoria
+| 1 | 0 |-| 1 | 0  | Set Q a 1
+| 0 | 1 |-| 0 | 1  | Reset Q a 0
+| 1 | 1 |-| 0 | 1  | Complementar (cambia salida como un inversor)
 
 
 ## Contador
@@ -188,13 +227,14 @@ Flip-flop clásico JK con entradas asíncronas de preset (activo LOW) y clear (a
 
 ![alt text](image-30.png)
 
+- Flip flops encadenados. Con 4 tienes 4 bits
+- El FF2 obedece a los cambios de FF1, el FF3 al de FF2...
+
+
 ## Decodificador
 1. DM74LS47
 
 ![alt text](image-31.png)
 
-## Temporizador
-1. NE555
-
-![alt text](image-32.png)
-
+- Pantalla que muestra números
+- Entrades desiguals
